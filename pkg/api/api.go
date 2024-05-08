@@ -125,6 +125,7 @@ func New(cfg Config, serverCfg server.Config, s *server.Server, logger log.Logge
 	// If no authentication middleware is present in the config, use the default authentication middleware.
 	if cfg.HTTPAuthMiddleware == nil {
 		api.AuthMiddleware = middleware.AuthenticateUser
+		_ = 0
 	}
 	if len(cfg.HTTPRequestHeadersToLog) > 0 {
 		api.HTTPHeaderMiddleware = &HTTPHeaderMiddleware{TargetHeaders: cfg.HTTPRequestHeadersToLog}
